@@ -1,0 +1,22 @@
+.auth {
+    background-color: #ccc;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 10px #333;
+    width: 60%;
+    min-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    color: #313131;
+}
+
+.buttonsWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonsWrapper button{
+    width: 50%;
+    box-sizing: border-box;
+}
