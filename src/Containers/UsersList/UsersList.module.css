@@ -1,0 +1,20 @@
+.usersList {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    text-align: center;
+}
+
+.userCard { 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.usersHeader {
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}

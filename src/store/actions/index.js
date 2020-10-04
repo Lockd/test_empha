@@ -3,3 +3,7 @@ export {
     authCheckState,
     authLogout
 } from './auth';
+
+export {
+    fetchUsers
+} from './users';

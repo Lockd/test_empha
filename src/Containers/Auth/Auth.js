@@ -13,7 +13,7 @@ import { Redirect } from 'react-router';
 class Auth extends Component {
     state = {
         controls: {
-            email: {
+            username: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -22,7 +22,6 @@ class Auth extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    // isEmail: true
                 },
                 label: 'Login',
                 valid: false,
@@ -60,7 +59,7 @@ class Auth extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value);
+        this.props.onAuth(this.state.controls.username.value, this.state.controls.password.value);
     }
 
     render() {
@@ -107,7 +106,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, password) => dispatch(actions.auth(email, password))
+        onAuth: (username, password) => dispatch(actions.auth(username, password))
     }
 }
 

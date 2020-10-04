@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Route, Switch } from 'react-router';
 
 import Auth from './Containers/Auth/Auth';
-import UserList from './Containers/UserList/UserList';
+import UsersList from './Containers/UsersList/UsersList';
 import Header from './Components/Header/Header';
 import Logout from './Containers/Auth/Logout/Logout';
 
@@ -21,7 +21,7 @@ class App extends Component {
       <div className="App">
         {this.props.isLoggedIn ? <Header /> : null}
         <Switch>
-          <Route path='/users' component={UserList} />
+          <Route path='/users' component={UsersList} />
           <Route path='/logout' component={Logout} />
           <Route path='/' component={Auth} />
         </Switch>

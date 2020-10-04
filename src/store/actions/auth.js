@@ -38,17 +38,12 @@ export const authCheckState = () => {
     }
 };
 
-export const auth = (email, password) => {
+export const auth = (username, password) => {
     return dispatch => {
         dispatch(authStart());
-        const authData = {
-            username: email,
-            password: password
-        };
-
-        let url = 'http://emphasoft-test-assignment.herokuapp.com/api-token-auth/';
-        axios.post(url, authData)
+        axios.post('http://emphasoft-test-assignment.herokuapp.com/api-token-auth/', { username: username, password: password })
             .then(response => {
+                console.log(response);
                 localStorage.setItem('token', response.data.token);
                 dispatch(authSuccess(response.data.token));
             })
