@@ -16,18 +16,7 @@
 }
 
 .navigation__item {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 10px;
-    box-sizing: border-box;
     height: 100%;
-
-    &:active,
-    &:hover,
-    &.active {
-        background-color: #cd7e3c;
-    }
 }
 
 .navigation__link {
@@ -35,4 +24,17 @@
     text-decoration: none;
     cursor: pointer;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:active,
+    &:hover,
+    &.active {
+        background-color: #cd7e3c;
+    }
 }

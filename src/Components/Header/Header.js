@@ -1,15 +1,13 @@
 import React from 'react';
 import Navigation from '../../Containers/Navigation/Navigation';
-// import About from '../About/About';
 
 import './Header.scss';
 
-const header = props => {
+const header = (props) => {
     return (
-        <div className='header'>
-            {/* <About /> */}
+        <header className='header'>
             <Navigation />
-        </div>
+        </header>
     );
 }
 

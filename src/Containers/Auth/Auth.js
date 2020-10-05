@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { updateObject, checkValidity } from '../../shared/utility';
 import {connect} from 'react-redux'
 
-import Input from '../../Components/BaseComponents/AppInput/AppInput';
+import AppInput from '../../Components/BaseComponents/AppInput/AppInput';
 import AppButton from '../../Components/BaseComponents/AppButton/AppButton';
 
 import * as actions from '../../store/actions';
@@ -73,7 +73,7 @@ class Auth extends Component {
             });
         }
         let form = formElementsArray.map(formElement => (
-            <Input
+            <AppInput
                 label={formElement.config.label}
                 key={formElement.id}
                 inputtype={formElement.config.elementType}

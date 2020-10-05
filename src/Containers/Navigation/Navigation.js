@@ -13,8 +13,7 @@ class Navigation extends Component {
                         ? <NavLink className='navigation__link' to='/logout'>Выйти</NavLink>
                         : <NavLink className='navigation__link' to='/login'>Войти в систему</NavLink>
                     }</li>
-                    <li className='navigation__item'><NavLink className='navigation__link' to='/add-user'>Добавить пользователя</NavLink></li>
-                    <li className='navigation__item'><NavLink className='navigation__link' to='/users'>Список пользователей</NavLink></li>
+                    <li className='navigation__item'><NavLink activeClassName='active' className='navigation__link' to='/users'>Список пользователей</NavLink></li>
                 </ul>
             </nav>
         );
