@@ -2,7 +2,20 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
 const initialState = {
-    usersData: null,
+    users: {
+        data: null,
+
+        get idSortedAscending() {
+            if (this.data) {
+                const sortedData = this.data.sort((prevEl, el) => {
+                    return prevEl.id - el.id;
+                });
+                return sortedData;
+            } else {
+                return undefined;
+            }            
+        }
+    },
     error: null,
     loading: false
 }
@@ -12,8 +25,9 @@ const fetchUsersStart = (state, action) => {
 }
 
 const fetchUsersSuccess = (state, action) => {
+    const updatedUsersData = updateObject(state.users, {data: action.usersData});
     return updateObject(state, {
-        usersData: action.usersData,
+        users: updatedUsersData,
         loading: false
     });
 }
