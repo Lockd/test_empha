@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-.label {
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
-}
-
 .input__element {
     outline: none;
     border: 1px solid #ccc;
@@ -19,11 +13,17 @@
     display: block;
     width: 100%;
     box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        background-color: #eee;
+    }
 }
 
-.input__element:focus {
-    outline: none;
-    background-color: #eee;
+.label {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .invalid {

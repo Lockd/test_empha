@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions';
 
-import classes from './UsersList.module.css';
+import './UsersList.scss';
 
 class UserList extends Component {
+    componentDidMount() {
+        if (this.props.token) {
+            this.props.getUsersList(this.props.token);
+        }
+    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.token !== this.props.token) {
             this.props.getUsersList(this.props.token);
+            
         }
     }
 
@@ -27,20 +34,27 @@ class UserList extends Component {
                 }
                 usersArray.push({ key: key, config: config })
             }
-            usersList = usersArray.map(user => (
-                <div className={classes.userCard} key={user.config.id}>
-                    <p>{user.config.username}</p>
-                    <p>{user.config.firstName}</p>
-                    <p>{user.config.secondName}</p>
-                    <p>{user.config.lastLogin}</p>
-                    <p>{user.config.isSuperuser}</p>
-                </div>
-            ))
+            usersList = (
+                <Fragment>
+                    {usersArray.map(user => (
+                        <div className='userCard' key={user.config.id}>
+                            <p>{user.config.id}</p>
+                            <p>{user.config.username}</p>
+                            <p>{user.config.firstName}</p>
+                            <p>{user.config.secondName}</p>
+                            <p>{user.config.lastLogin}</p>
+                            <p>{user.config.isSuperuser}</p>
+                        </div>
+                    ))}
+                </Fragment>
+            );
         }
 
         return (
-            <div className={classes.usersList}>
-                <div className={classes.usersHeader}>
+            <div className='usersList'>
+                <button onClick={this.onChangeSortMethod}>Сортировать по id</button>
+                <div className='usersHeader'>
+                    <p>id</p>
                     <p>Username</p>
                     <p>Имя</p>
                     <p>Фамилия</p>

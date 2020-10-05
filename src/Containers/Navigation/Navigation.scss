@@ -1,4 +1,4 @@
-.navigation__wrapper {
+.navigation-wrapper {
     height: 100%;
     width: 100%;
 }
@@ -22,6 +22,12 @@
     padding: 5px 10px;
     box-sizing: border-box;
     height: 100%;
+
+    &:active,
+    &:hover,
+    &.active {
+        background-color: #cd7e3c;
+    }
 }
 
 .navigation__link {
@@ -29,10 +35,4 @@
     text-decoration: none;
     cursor: pointer;
     color: white;
-}
-
-.navigation__link:active,
-.navigation__item:hover,
-.navigation__link.active {
-    background-color: #cd7e3c;
 }

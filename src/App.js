@@ -9,11 +9,11 @@ import Logout from './Containers/Auth/Logout/Logout';
 
 import * as actions from './store/actions';
 
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   componentDidMount() {
-    this.props.onTryAutoSignUp();
+    this.props.autoSignUp();
   }
 
   render() {
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryAutoSignUp: () => dispatch(actions.authCheckState())
+    autoSignUp: () => dispatch(actions.authCheckState())
   };
 };
 

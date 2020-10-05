@@ -2,11 +2,11 @@ import React from 'react';
 import Navigation from '../../Containers/Navigation/Navigation';
 // import About from '../About/About';
 
-import classes from './Header.module.css';
+import './Header.scss';
 
 const header = props => {
     return (
-        <div className={classes.header}>
+        <div className='header'>
             {/* <About /> */}
             <Navigation />
         </div>

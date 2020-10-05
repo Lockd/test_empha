@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { updateObject, checkValidity } from '../../shared/utility';
 import {connect} from 'react-redux'
 
-import Input from '../../Components/UI/Input/Input';
-import Button from '../../Components/UI/Button/Button';
+import Input from '../../Components/BaseComponents/AppInput/AppInput';
+import AppButton from '../../Components/BaseComponents/AppButton/AppButton';
 
 import * as actions from '../../store/actions';
 
-import classes from './Auth.module.css';
+import './Auth.scss';
 import { Redirect } from 'react-router';
 
 class Auth extends Component {
@@ -45,7 +45,7 @@ class Auth extends Component {
         }
     }
 
-    inputChangedHandler = (event, controlName) => {
+    onInputChangedHandler = (event, controlName) => {
         const updatedControls = updateObject(this.state.controls, {
             [controlName]: updateObject(this.state.controls[controlName], {
                 value: event.target.value,
@@ -57,7 +57,7 @@ class Auth extends Component {
         this.setState({ controls: updatedControls })
     }
 
-    submitHandler = (event) => {
+    onSubmitHandler = (event) => {
         event.preventDefault();
         this.props.onAuth(this.state.controls.username.value, this.state.controls.password.value);
     }
@@ -82,15 +82,15 @@ class Auth extends Component {
                 invalid={!formElement.config.valid}
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
-                changed={(event) => this.inputChangedHandler(event, formElement.id)}
+                changed={(event) => this.onInputChangedHandler(event, formElement.id)}
             />));
         return (
-            <div className={classes.auth}>
+            <div className='auth'>
                 {this.props.isLoggedIn ? redirect : null}
-                <form onSubmit={this.submitHandler}>
+                <form onSubmit={this.onSubmitHandler}>
                     {form}
-                    <div className={classes.buttonsWrapper}>
-                        <Button className={classes.auth__button} btnType='Success'>Отправить</Button>
+                    <div className='buttonsWrapper'>
+                        <AppButton className='auth__button' btnType='Success'>Отправить</AppButton>
                     </div>
                 </form>
             </div>

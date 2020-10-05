@@ -30,7 +30,6 @@ export const fetchUsers = (token) => {
             }
           })
             .then(response => {
-                console.log('response', response);
                 dispatch(fetchUsersSuccess(response.data));
             })
             .catch(error => {

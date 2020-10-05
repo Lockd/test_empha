@@ -1,12 +1,12 @@
 import React from 'react';
-import classes from './Input.module.css';
+import './AppInput.scss';
 
 const input = (props) => {
     let inputElement = null;
-    const inputClasses = [classes.input__element];
+    const inputClasses = ['input__element'];
 
     if (props.invalid && props.shouldValidate && props.touched) {
-        inputClasses.push(classes.invalid);
+        inputClasses.push('invalid');
     }
 
     switch (props.inputtype) {
@@ -49,8 +49,8 @@ const input = (props) => {
     }
 
     return (
-        <div className={classes.input}>
-            <label className={classes.label}>{props.label}</label>
+        <div className='input'>
+            <label className='label'>{props.label}</label>
             {inputElement}
         </div>
     );
