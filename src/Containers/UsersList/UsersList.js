@@ -107,7 +107,7 @@ class UserList extends Component {
         return (
             <div className='users-list'>
                 <div className='users-list__filters-wrapper'>
-                    <div class='users-list__filter'>
+                    <div className='users-list__filter'>
                         <strong>Filter by username</strong>
                         <AppInput
                             inputtype='text'
@@ -117,7 +117,7 @@ class UserList extends Component {
                             elementConfig={{ placeholder: 'Enter username' }}
                         />
                     </div>
-                    <div class='users-list__filter'>
+                    <div className='users-list__filter'>
                         <strong>Filter by id</strong>
                         <select onChange={this.onSortMethodChanged}>
                             <option value='undefined'></option>
