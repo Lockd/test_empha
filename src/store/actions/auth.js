@@ -41,9 +41,8 @@ export const authCheckState = () => {
 export const auth = (username, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('http://emphasoft-test-assignment.herokuapp.com/api-token-auth/', { username: username, password: password })
+        axios.post('https://emphasoft-test-assignment.herokuapp.com/api-token-auth/', { username: username, password: password })
             .then(response => {
-                console.log(response);
                 localStorage.setItem('token', response.data.token);
                 dispatch(authSuccess(response.data.token));
             })

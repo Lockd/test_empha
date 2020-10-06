@@ -80,7 +80,6 @@ class UserList extends Component {
                 usersArray = usersArray.filter(user => {
                     return user.config.username.indexOf(this.state.filter.value) !== -1;
                 });
-                console.log('users', usersArray);
             }
 
             if (this.state.sort === ID_SORT_ASCENDING) {

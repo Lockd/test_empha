@@ -24,7 +24,7 @@ export const fetchUsersSuccess = (data) => {
 export const fetchUsers = (token) => {
     return dispatch => {
         dispatch(fetchUsersStart());
-        axios.get('http://emphasoft-test-assignment.herokuapp.com/api/v1/users/', {
+        axios.get('https://emphasoft-test-assignment.herokuapp.com/api/v1/users/', {
             headers: {
               'Authorization': `token ${token}`
             }
@@ -33,7 +33,6 @@ export const fetchUsers = (token) => {
                 dispatch(fetchUsersSuccess(response.data));
             })
             .catch(error => {
-                console.log('error', error);
                 dispatch(fetchUsersFail(error));
             });
     }
