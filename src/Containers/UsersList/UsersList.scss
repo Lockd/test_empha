@@ -1,29 +1,105 @@
-.usersList {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: minmax(100px, auto);
-    width: 100%;
-    padding: 10px;
-    gap: 10px;
-    text-align: center;
+@import "../../sass/variables";
+
+.users-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(40px, auto);
+  width: 100%;
+  padding: 10px;
+  gap: 5px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35);
 }
 
-.userCard { 
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+.users-list__filters-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  flex-direction: column-reverse;
+  padding: 20px 10px 0 20px;
+
+  @media ($w580) {
+    flex-direction: row;
+  }
 }
 
-.usersHeader {
-    font-weight: bold;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+.users-list__filter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  & + & {
+    margin-bottom: 10px;
+  }
+
+  @media ($w580) {
+    width: 50%;
+
+    & + & {
+      margin: 0;
+    }
+  }
+
+  .app-input {
+    width: 50% !important;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.user-info {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  align-items: center;
+
+  p {
+    margin: 0;
+
+    &:nth-child(4) {
+      display: none;
+    }
+  }
+
+  @media ($w580) {
+    grid-template-columns: repeat(5, 1fr);
+
+    p:nth-child(4) {
+      display: block;
+    }
+  }
+}
+
+.user-info__superuser-svg {
+  width: 30px;
+}
+
+.users-list__header {
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  align-items: center;
+
+  p:nth-child(4) {
+    display: none;
+  }
+
+  @media ($w580) {
+    grid-template-columns: repeat(5, 1fr);
+
+    p:nth-child(4) {
+      display: block;
+    }
+  }
 }
 
 select {
-    font: inherit;
-    margin-left: 5px;
+  font: inherit;
+  margin-left: 5px;
 }
 
 select option:nth-child(1) {
-    display: none;
+  display: none;
 }

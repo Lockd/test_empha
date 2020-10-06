@@ -7,6 +7,7 @@ import AppInput from '../../Components/BaseComponents/AppInput/AppInput';
 import { updateObject } from '../../shared/utility';
 
 import './UsersList.scss';
+import { ReactComponent as SuperUser } from '../../assets/superuser.svg';
 
 class UserList extends Component {
     state = {
@@ -72,7 +73,7 @@ class UserList extends Component {
 
         let usersList = <h1>List is still loading</h1>;
 
-        if (this.state.users) {            
+        if (this.state.users) {
             let usersArray = this.state.users.map((user) => (user));
 
             if (this.state.filter.value) {
@@ -93,42 +94,44 @@ class UserList extends Component {
             }
 
             usersList = usersArray.map(user => (
-                <div className='userCard' key={user.config.id}>
+                <div className='user-info users-list__element' key={user.config.id}>
                     <p>{user.config.id}</p>
                     <p>{user.config.username}</p>
                     <p>{user.config.firstName}</p>
-                    <p>{user.config.secondName}</p>
+                    {/* <p>{user.config.secondName}</p> */}
                     <p>{user.config.lastLogin}</p>
-                    <p>{user.config.isSuperuser}</p>
+                    <p>{user.config.isSuperuser ? <SuperUser className='userCard__superuser-svg' /> : null}</p>
                 </div>
             ));
         }
 
         return (
-            <div className='usersList'>
-                <div>
-                    сортировать по
-                    <select onChange={this.onSortMethodChanged}>
-                        <option value='undefined'></option>
-                        <option value={ID_SORT_ASCENDING}>возрастанию id</option>
-                        <option value={ID_SORT_DESCENDING}>убыванию id</option>
-                    </select>
+            <div className='users-list'>
+                <div className='users-list__filters-wrapper'>
+                    <div class='users-list__filter'>
+                        <strong>Filter by username</strong>
+                        <AppInput
+                            inputtype='text'
+                            value={this.state.filter.value}
+                            shouldValidate={this.state.filter.validate}
+                            changed={(event) => this.onInputChangedHandler(event)}
+                            elementConfig={{ placeholder: 'Enter username' }}
+                        />
+                    </div>
+                    <div class='users-list__filter'>
+                        <strong>Filter by id</strong>
+                        <select onChange={this.onSortMethodChanged}>
+                            <option value='undefined'></option>
+                            <option value={ID_SORT_ASCENDING}>Ascending</option>
+                            <option value={ID_SORT_DESCENDING}>Descending</option>
+                        </select>
+                    </div>
                 </div>
-
-
-                <AppInput
-                    label='Filter by username'
-                    inputtype='text'
-                    value={this.state.filter.value}
-                    shouldValidate={this.state.filter.validate}
-                    changed={(event) => this.onInputChangedHandler(event)}
-                />
-
-                <div className='usersHeader'>
+                <div className='users-list__header'>
                     <p>id</p>
                     <p>Username</p>
                     <p>First name</p>
-                    <p>Second name</p>
+                    {/* <p>Second name</p> */}
                     <p>Last log in</p>
                     <p>Is superuser?</p>
                 </div>

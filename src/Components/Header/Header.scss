@@ -1,7 +1,13 @@
+@import '../../sass/variables';
+
 .header {
-    display: flex; 
     width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
+    max-width: 860px;
+    height: 70px;
+    padding: 5px;
+    margin: 0 auto;
+
+    @media($w580) {
+        padding: 10px;
+    }
 }

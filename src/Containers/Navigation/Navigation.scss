@@ -1,6 +1,8 @@
 .navigation-wrapper {
     height: 100%;
     width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
 }
 
 .navigation {
@@ -11,8 +13,9 @@
     width: 100%;
     text-align: right;
     display: flex;
-    justify-content: space-evenly;
-    background-color: #e8b284;
+    justify-content: flex-end;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35);
 }
 
 .navigation__item {
@@ -23,18 +26,16 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 10px;
+    padding: 5px 15px;
     height: 100%;
     width: 100%;
-    box-sizing: border-box;
 
     &:active,
     &:hover,
     &.active {
-        background-color: #cd7e3c;
+        background-color: #f3f3f3;
     }
 }

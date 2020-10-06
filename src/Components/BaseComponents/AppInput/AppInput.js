@@ -1,9 +1,9 @@
 import React from 'react';
 import './AppInput.scss';
 
-const input = (props) => {
+const appInput = (props) => {
     let inputElement = null;
-    const inputClasses = ['input__element'];
+    const inputClasses = ['app-input__element'];
 
     if (props.invalid && props.shouldValidate && props.touched) {
         inputClasses.push('invalid');
@@ -49,12 +49,12 @@ const input = (props) => {
     }
 
     return (
-        <div className='input'>
-            <label className='label'>{props.label}</label>
+        <div className='app-input'>
+            <label className='app-input__label'>{props.label}</label>
             {inputElement}
         </div>
     );
 
 }
 
-export default input;
+export default appInput;

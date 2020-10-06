@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { updateObject, checkValidity } from '../../shared/utility';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router';
 
 import AppInput from '../../Components/BaseComponents/AppInput/AppInput';
 import AppButton from '../../Components/BaseComponents/AppButton/AppButton';
 
-import * as actions from '../../store/actions';
+import { updateObject, checkValidity } from '../../shared/utility';
+import { auth } from '../../store/actions';
 
 import './Auth.scss';
-import { Redirect } from 'react-router';
 
 class Auth extends Component {
     state = {
@@ -22,6 +22,9 @@ class Auth extends Component {
                 value: '',
                 validation: {
                     required: true,
+                    isUsername: true,
+                    maxLength: 150,
+                    minLength: 1
                 },
                 label: 'Login',
                 valid: false,
@@ -34,9 +37,11 @@ class Auth extends Component {
                     placeholder: 'Password'
                 },
                 value: '',
-                validation: {
+                validation: {                    
                     required: true,
-                    minLength: 6
+                    isPassword: true,
+                    minLength: 1,
+                    maxLength: 128
                 },
                 label: 'Password',
                 valid: false,
@@ -89,8 +94,9 @@ class Auth extends Component {
                 {this.props.isLoggedIn ? redirect : null}
                 <form onSubmit={this.onSubmitHandler}>
                     {form}
+                    {this.props.error ? <div className='auth__error'>{this.props.error}</div> : null}
                     <div className='buttonsWrapper'>
-                        <AppButton className='auth__button' btnType='Success'>Отправить</AppButton>
+                        <AppButton className='auth__button' btnType='success'>Continue</AppButton>
                     </div>
                 </form>
             </div>
@@ -100,13 +106,14 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
     return {
-      isLoggedIn: state.auth.token !== null
+        isLoggedIn: state.auth.token !== null,
+        error: state.auth.error
     }
-  }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (username, password) => dispatch(actions.auth(username, password))
+        onAuth: (username, password) => dispatch(auth(username, password))
     }
 }
 

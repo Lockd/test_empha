@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 
 import Auth from './Containers/Auth/Auth';
@@ -20,11 +20,13 @@ class App extends Component {
     return (
       <div className="App">
         {this.props.isLoggedIn ? <Header /> : null}
-        <Switch>
-          <Route path='/users' component={UsersList} />
-          <Route path='/logout' component={Logout} />
-          <Route path='/' component={Auth} />
-        </Switch>
+        <div className='main-content'>
+          <Switch>
+            <Route path='/users' component={UsersList} />
+            <Route path='/logout' component={Logout} />
+            <Route path='/' component={Auth} />
+          </Switch>
+        </div>
       </div>
     );
   }

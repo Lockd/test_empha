@@ -21,16 +21,16 @@ export const checkValidity = (value, rules) => {
     }
 
     if (rules.maxLength) {
-        isValid = value.length >= rules.maxLength && isValid;
+        isValid = value.length <= rules.maxLength && isValid;
     }
 
-    if (rules.isEmail) {
-        const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+    if (rules.isUsername) {
+        const pattern = /^[\w.@+-]+$/g;
         isValid = pattern.test(value) && isValid
     }
 
-    if (rules.isNumeric) {
-        const pattern = /^\d+$/;
+    if (rules.isPassword) {
+        const pattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
         isValid = pattern.test(value) && isValid
     }
 

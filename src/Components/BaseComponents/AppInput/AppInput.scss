@@ -1,26 +1,27 @@
-.input {
+.app-input {
     width: 100%;
     padding: 10px;
-    box-sizing: border-box;
 }
 
-.input__element {
+.app-input__element {
     outline: none;
     border: 1px solid #ccc;
-    background-color: white;
+    border-radius: 5px;
+    background-color:#f3f3f3;
     font: inherit;
     padding: 6px 10px;
     display: block;
     width: 100%;
-    box-sizing: border-box;
+
+    transition: background-color .15s ease-in-out;
 
     &:focus {
         outline: none;
-        background-color: #eee;
+        background-color: #fff;
     }
 }
 
-.label {
+.app-input__label {
     font-weight: 700;
     display: block;
     margin-bottom: 10px;

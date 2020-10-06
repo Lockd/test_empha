@@ -1,14 +1,14 @@
 import React from 'react';
 import './AppButton.scss';
 
-const button = (props) => (
+const appButton = (props) => (
     <button 
         disabled={props.disabled}
-        className={['button', `${props.btnType}`].join(' ')}
+        className={['app-button', `${props.btnType}`].join(' ')}
         onClick={props.clicked}
     >
         {props.children}
     </button>
 );
 
-export default button;
+export default appButton;

@@ -9,11 +9,16 @@ class Navigation extends Component {
         return (
             <nav className='navigation-wrapper'>
                 <ul className='navigation'>
-                    <li className='navigation__item'>{this.props.isLoggedIn
-                        ? <NavLink className='navigation__link' to='/logout'>Выйти</NavLink>
-                        : <NavLink className='navigation__link' to='/login'>Войти в систему</NavLink>
-                    }</li>
-                    <li className='navigation__item'><NavLink activeClassName='active' className='navigation__link' to='/users'>Список пользователей</NavLink></li>
+                    <li className='navigation__item'>
+                        {this.props.isLoggedIn
+                            ? <NavLink className='navigation__link' to='/logout'>Log out</NavLink>
+                            : null}
+                    </li>
+                    <li className='navigation__item'>
+                        <NavLink activeClassName='active' className='navigation__link' to='/users'>
+                            List of all users
+                        </NavLink>
+                    </li>
                 </ul>
             </nav>
         );
